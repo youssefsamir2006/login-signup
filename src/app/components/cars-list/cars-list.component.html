@@ -1,0 +1,16 @@
+<div class="cars-list-container">
+  <h1>Car Listings</h1>
+  <div class="cars-grid" *ngIf="cars.length > 0; else noCars">
+    <div class="car-card" *ngFor="let car of cars">
+      <img [src]="car.imageUrl" [alt]="car.make + ' ' + car.model">
+      <div class="car-details">
+        <h3>{{ car.year }} {{ car.make }} {{ car.model }}</h3>
+        <p class="price">${{ car.price | number }}</p>
+        <p>{{ car.description }}</p>
+      </div>
+    </div>
+  </div>
+  <ng-template #noCars>
+    <p>No cars available at the moment. Please check back later.</p>
+  </ng-template>
+</div>
